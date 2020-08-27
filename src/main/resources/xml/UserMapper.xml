@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.User" >
+    <id column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="userEmail" property="useremail" jdbcType="VARCHAR" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="userPwd" property="userpwd" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userId, userEmail, userName, userPwd
+  </sql>
+  <select id="selectUser" resultType="User" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+     from user
+    where userEmail=#{useremail};
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="User" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where userEmail = #{useremail} and userPwd=#{userpwd}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where userId = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="User" keyProperty="userId" useGeneratedKeys="true" >
+    insert into user ( userEmail, userName,userPwd)
+    values ( #{useremail,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+      #{userpwd,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="useremail != null" >
+        userEmail,
+      </if>
+      <if test="username != null" >
+        userName,
+      </if>
+      <if test="userpwd != null" >
+        userPwd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="useremail != null" >
+        #{useremail,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null" >
+        #{userpwd,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="User" >
+    update user
+    <set >
+      <if test="userpwd != null and userpwd !=' '" >
+        userPwd = #{userpwd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userEmail=#{useremail}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.User" >
+    update user
+    set userEmail = #{useremail,jdbcType=VARCHAR},
+      userName = #{username,jdbcType=VARCHAR},
+      userPwd = #{userpwd,jdbcType=VARCHAR}
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.HospitalMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Hospital" >
+    <id column="hospitalId" property="hospitalid" jdbcType="INTEGER" />
+    <result column="hospitalInfo" property="hospitalinfo" jdbcType="VARCHAR" />
+    <result column="hospitalName" property="hospitalname" jdbcType="CHAR" />
+    <result column="hospitalSarsInfo" property="hospitalsarsinfo" jdbcType="VARCHAR" />
+    <result column="hospitalSarsInfoPic" property="hospitalsarsinfopic" jdbcType="VARCHAR" />
+    <result column="hospitalAddress" property="hospitaladdress" jdbcType="VARCHAR" />
+    <result column="hospitalEmail" property="hospitalemail" jdbcType="VARCHAR" />
+    <result column="hospitalTel" property="hospitaltel" jdbcType="INTEGER" />
+    <result column="hospitalFax" property="hospitalfax" jdbcType="VARCHAR" />
+    <result column="hospitalRecoverNum" property="hospitalrecovernum" jdbcType="INTEGER" />
+    <result column="monDay" property="monday" jdbcType="VARCHAR" />
+    <result column="tuesDay" property="tuesday" jdbcType="VARCHAR" />
+    <result column="wednesDay" property="wednesday" jdbcType="VARCHAR" />
+    <result column="thursDay" property="thursday" jdbcType="VARCHAR" />
+    <result column="friDayToSunday" property="fridaytosunday" jdbcType="VARCHAR" />
+    <collection property="askhosquestionList" column="hospitalId" ofType="Askhosquestion" select="selectAskHos" fetchType="eager"></collection>
+    <collection property="doctorList" column="hospitalId" ofType="Doctor" select="selectDoctor" fetchType="eager"></collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    hospitalId, hospitalInfo, hospitalName, hospitalSarsInfo, hospitalSarsInfoPic, hospitalAddress, 
+    hospitalEmail, hospitalTel, hospitalFax, hospitalRecoverNum, monDay, tuesDay, wednesDay, 
+    thursDay, friDayToSunday
+  </sql>
+  <sql id="Base_Column_DoctorList" >
+    doctorId, doctorName, doctorInfo, doctorEmail, doctorTel, hospitalId
+  </sql>
+  <sql id="Base_Column_QuestionList" >
+    questionId, questionTopic, questionReplyInfo, questionInfo, hospitalId, userId
+  </sql>
+  <select id="selectAskHos" resultType="Askhosquestion" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_QuestionList" />
+    from askhosquestion
+    where hospitalId = #{hospitalid,jdbcType=INTEGER}
+  </select>
+  <select id="selectDoctor" resultType="Doctor" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_DoctorList" />
+    from doctor
+    where hospitalId = #{hospitalid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from hospital
+    where hospitalId = #{hospitalid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hospital
+    where hospitalId = #{hospitalid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Hospital" >
+    insert into hospital (hospitalId, hospitalInfo, hospitalName, 
+      hospitalSarsInfo, hospitalSarsInfoPic, 
+      hospitalAddress, hospitalEmail, hospitalTel, 
+      hospitalFax, hospitalRecoverNum, monDay, 
+      tuesDay, wednesDay, thursDay, 
+      friDayToSunday)
+    values (#{hospitalid,jdbcType=INTEGER}, #{hospitalinfo,jdbcType=VARCHAR}, #{hospitalname,jdbcType=CHAR}, 
+      #{hospitalsarsinfo,jdbcType=VARCHAR}, #{hospitalsarsinfopic,jdbcType=VARCHAR}, 
+      #{hospitaladdress,jdbcType=VARCHAR}, #{hospitalemail,jdbcType=VARCHAR}, #{hospitaltel,jdbcType=INTEGER}, 
+      #{hospitalfax,jdbcType=INTEGER}, #{hospitalrecovernum,jdbcType=INTEGER}, #{monday,jdbcType=VARCHAR}, 
+      #{tuesday,jdbcType=VARCHAR}, #{wednesday,jdbcType=VARCHAR}, #{thursday,jdbcType=VARCHAR}, 
+      #{fridaytosunday,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Hospital" >
+    insert into hospital
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hospitalid != null" >
+        hospitalId,
+      </if>
+      <if test="hospitalinfo != null" >
+        hospitalInfo,
+      </if>
+      <if test="hospitalname != null" >
+        hospitalName,
+      </if>
+      <if test="hospitalsarsinfo != null" >
+        hospitalSarsInfo,
+      </if>
+      <if test="hospitalsarsinfopic != null" >
+        hospitalSarsInfoPic,
+      </if>
+      <if test="hospitaladdress != null" >
+        hospitalAddress,
+      </if>
+      <if test="hospitalemail != null" >
+        hospitalEmail,
+      </if>
+      <if test="hospitaltel != null" >
+        hospitalTel,
+      </if>
+      <if test="hospitalfax != null" >
+        hospitalFax,
+      </if>
+      <if test="hospitalrecovernum != null" >
+        hospitalRecoverNum,
+      </if>
+      <if test="monday != null" >
+        monDay,
+      </if>
+      <if test="tuesday != null" >
+        tuesDay,
+      </if>
+      <if test="wednesday != null" >
+        wednesDay,
+      </if>
+      <if test="thursday != null" >
+        thursDay,
+      </if>
+      <if test="fridaytosunday != null" >
+        friDayToSunday,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hospitalid != null" >
+        #{hospitalid,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalinfo != null" >
+        #{hospitalinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalname != null" >
+        #{hospitalname,jdbcType=CHAR},
+      </if>
+      <if test="hospitalsarsinfo != null" >
+        #{hospitalsarsinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalsarsinfopic != null" >
+        #{hospitalsarsinfopic,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitaladdress != null" >
+        #{hospitaladdress,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalemail != null" >
+        #{hospitalemail,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitaltel != null" >
+        #{hospitaltel,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalfax != null" >
+        #{hospitalfax,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalrecovernum != null" >
+        #{hospitalrecovernum,jdbcType=INTEGER},
+      </if>
+      <if test="monday != null" >
+        #{monday,jdbcType=VARCHAR},
+      </if>
+      <if test="tuesday != null" >
+        #{tuesday,jdbcType=VARCHAR},
+      </if>
+      <if test="wednesday != null" >
+        #{wednesday,jdbcType=VARCHAR},
+      </if>
+      <if test="thursday != null" >
+        #{thursday,jdbcType=VARCHAR},
+      </if>
+      <if test="fridaytosunday != null" >
+        #{fridaytosunday,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Hospital" >
+    update hospital
+    <set >
+      <if test="hospitalinfo != null" >
+        hospitalInfo = #{hospitalinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalname != null" >
+        hospitalName = #{hospitalname,jdbcType=CHAR},
+      </if>
+      <if test="hospitalsarsinfo != null" >
+        hospitalSarsInfo = #{hospitalsarsinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalsarsinfopic != null" >
+        hospitalSarsInfoPic = #{hospitalsarsinfopic,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitaladdress != null" >
+        hospitalAddress = #{hospitaladdress,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalemail != null" >
+        hospitalEmail = #{hospitalemail,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitaltel != null" >
+        hospitalTel = #{hospitaltel,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalfax != null" >
+        hospitalFax = #{hospitalfax,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalrecovernum != null" >
+        hospitalRecoverNum = #{hospitalrecovernum,jdbcType=INTEGER},
+      </if>
+      <if test="monday != null" >
+        monDay = #{monday,jdbcType=VARCHAR},
+      </if>
+      <if test="tuesday != null" >
+        tuesDay = #{tuesday,jdbcType=VARCHAR},
+      </if>
+      <if test="wednesday != null" >
+        wednesDay = #{wednesday,jdbcType=VARCHAR},
+      </if>
+      <if test="thursday != null" >
+        thursDay = #{thursday,jdbcType=VARCHAR},
+      </if>
+      <if test="fridaytosunday != null" >
+        friDayToSunday = #{fridaytosunday,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where hospitalId = #{hospitalid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Hospital" >
+    update hospital
+    set hospitalInfo = #{hospitalinfo,jdbcType=VARCHAR},
+      hospitalName = #{hospitalname,jdbcType=CHAR},
+      hospitalSarsInfo = #{hospitalsarsinfo,jdbcType=VARCHAR},
+      hospitalSarsInfoPic = #{hospitalsarsinfopic,jdbcType=VARCHAR},
+      hospitalAddress = #{hospitaladdress,jdbcType=VARCHAR},
+      hospitalEmail = #{hospitalemail,jdbcType=VARCHAR},
+      hospitalTel = #{hospitaltel,jdbcType=INTEGER},
+      hospitalFax = #{hospitalfax,jdbcType=INTEGER},
+      hospitalRecoverNum = #{hospitalrecovernum,jdbcType=INTEGER},
+      monDay = #{monday,jdbcType=VARCHAR},
+      tuesDay = #{tuesday,jdbcType=VARCHAR},
+      wednesDay = #{wednesday,jdbcType=VARCHAR},
+      thursDay = #{thursday,jdbcType=VARCHAR},
+      friDayToSunday = #{fridaytosunday,jdbcType=VARCHAR}
+    where hospitalId = #{hospitalid,jdbcType=INTEGER}
+  </update>
+</mapper>

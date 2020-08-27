@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.DoctorMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Doctor" >
+    <id column="doctorId" property="doctorid" jdbcType="INTEGER" />
+    <result column="doctorName" property="doctorname" jdbcType="VARCHAR" />
+    <result column="doctorInfo" property="doctorinfo" jdbcType="VARCHAR" />
+    <result column="doctorEmail" property="doctoremail" jdbcType="VARCHAR" />
+    <result column="doctorTel" property="doctortel" jdbcType="INTEGER" />
+    <result column="hospitalId" property="hospitalid" jdbcType="INTEGER" />
+    <collection property="blogList" column="doctorId" ofType="Blog" select="selectBlog" fetchType="eager"></collection>
+    <collection property="educationList" column="doctorId" ofType="Education" select="selectEdu" fetchType="eager"></collection>
+    <collection property="porfessionalList" column="doctorId" fetchType="eager" ofType="Porfessional" select="selectPor"></collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    doctorId, doctorName, doctorInfo, doctorEmail, doctorTel, hospitalId
+  </sql>
+  <sql id="Base_Column_BlogList" >
+    blogId, blogTopic, blogpic, blogInfo, doctorId, blogTypeId, blogTime
+  </sql>
+  <sql id="Base_Column_EduList" >
+    educationId, educationName
+  </sql>
+  <sql id="Base_Column_PorList" >
+    porfessionalId, porfessionalName
+  </sql>
+  <select id="totalPageDoctor" resultType="int" parameterType="int">
+    select count(doctorId) from  doctor where hospitalId=#{hospitalid};
+  </select>
+  <select id="allDcotor" resultType="Doctor" parameterType="int">
+    select
+    <include refid="Base_Column_List" />
+    from doctor
+    where  hospitalId=#{hospitalid}
+     limit #{off},#{pageSize}
+  </select>
+  <select id="selectPor" resultType="Porfessional" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_PorList" />
+    from porfessional
+    where  porfessionalId in (select professionalId from  d_p where doctorId=#{doctorid})
+  </select>
+  <select id="selectEdu" resultType="Education" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_EduList" />
+    from education
+    where educationId in (select educationId from d_e where doctorId=#{doctorid})
+  </select>
+  <select id="selectBlog" resultType="Blog" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_BlogList" />
+    from blog
+    where doctorId = #{doctorid,jdbcType=INTEGER}
+  </select>
+  <select id="selectDoctorInfo" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from doctor
+    where doctorId = #{doctorid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from doctor
+    where doctorId = #{doctorid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Doctor" >
+    insert into doctor (doctorId, doctorName, doctorInfo, 
+      doctorEmail, doctorTel, hospitalId
+      )
+    values (#{doctorid,jdbcType=INTEGER}, #{doctorname,jdbcType=VARCHAR}, #{doctorinfo,jdbcType=VARCHAR}, 
+      #{doctoremail,jdbcType=VARCHAR}, #{doctortel,jdbcType=INTEGER}, #{hospitalid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Doctor" >
+    insert into doctor
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="doctorid != null" >
+        doctorId,
+      </if>
+      <if test="doctorname != null" >
+        doctorName,
+      </if>
+      <if test="doctorinfo != null" >
+        doctorInfo,
+      </if>
+      <if test="doctoremail != null" >
+        doctorEmail,
+      </if>
+      <if test="doctortel != null" >
+        doctorTel,
+      </if>
+      <if test="hospitalid != null" >
+        hospitalId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="doctorid != null" >
+        #{doctorid,jdbcType=INTEGER},
+      </if>
+      <if test="doctorname != null" >
+        #{doctorname,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorinfo != null" >
+        #{doctorinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="doctoremail != null" >
+        #{doctoremail,jdbcType=VARCHAR},
+      </if>
+      <if test="doctortel != null" >
+        #{doctortel,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalid != null" >
+        #{hospitalid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Doctor" >
+    update doctor
+    <set >
+      <if test="doctorname != null" >
+        doctorName = #{doctorname,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorinfo != null" >
+        doctorInfo = #{doctorinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="doctoremail != null" >
+        doctorEmail = #{doctoremail,jdbcType=VARCHAR},
+      </if>
+      <if test="doctortel != null" >
+        doctorTel = #{doctortel,jdbcType=INTEGER},
+      </if>
+      <if test="hospitalid != null" >
+        hospitalId = #{hospitalid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where doctorId = #{doctorid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Doctor" >
+    update doctor
+    set doctorName = #{doctorname,jdbcType=VARCHAR},
+      doctorInfo = #{doctorinfo,jdbcType=VARCHAR},
+      doctorEmail = #{doctoremail,jdbcType=VARCHAR},
+      doctorTel = #{doctortel,jdbcType=INTEGER},
+      hospitalId = #{hospitalid,jdbcType=INTEGER}
+    where doctorId = #{doctorid,jdbcType=INTEGER}
+  </update>
+</mapper>
