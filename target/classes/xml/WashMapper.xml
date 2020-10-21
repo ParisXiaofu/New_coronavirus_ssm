@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.WashMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Wash" >
+    <id column="washId" property="washid" jdbcType="INTEGER" />
+    <result column="washName" property="washname" jdbcType="VARCHAR" />
+    <result column="washPic" property="washpic" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    washId, washName, washPic
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from wash
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wash
+    where washId = #{washid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Wash" >
+    insert into wash (washId, washName, washPic
+      )
+    values (#{washid,jdbcType=INTEGER}, #{washname,jdbcType=VARCHAR}, #{washpic,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Wash" >
+    insert into wash
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="washid != null" >
+        washId,
+      </if>
+      <if test="washname != null" >
+        washName,
+      </if>
+      <if test="washpic != null" >
+        washPic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="washid != null" >
+        #{washid,jdbcType=INTEGER},
+      </if>
+      <if test="washname != null" >
+        #{washname,jdbcType=VARCHAR},
+      </if>
+      <if test="washpic != null" >
+        #{washpic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Wash" >
+    update wash
+    <set >
+      <if test="washname != null" >
+        washName = #{washname,jdbcType=VARCHAR},
+      </if>
+      <if test="washpic != null" >
+        washPic = #{washpic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where washId = #{washid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Wash" >
+    update wash
+    set washName = #{washname,jdbcType=VARCHAR},
+      washPic = #{washpic,jdbcType=VARCHAR}
+    where washId = #{washid,jdbcType=INTEGER}
+  </update>
+</mapper>

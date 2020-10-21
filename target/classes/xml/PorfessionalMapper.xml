@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.PorfessionalMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Porfessional" >
+    <id column="porfessionalId" property="porfessionalid" jdbcType="INTEGER" />
+    <result column="porfessionalName" property="porfessionalname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    porfessionalId, porfessionalName
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from porfessional
+    where porfessionalId = #{porfessionalid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from porfessional
+    where porfessionalId = #{porfessionalid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Porfessional" >
+    insert into porfessional (porfessionalId, porfessionalName)
+    values (#{porfessionalid,jdbcType=INTEGER}, #{porfessionalname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Porfessional" >
+    insert into porfessional
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="porfessionalid != null" >
+        porfessionalId,
+      </if>
+      <if test="porfessionalname != null" >
+        porfessionalName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="porfessionalid != null" >
+        #{porfessionalid,jdbcType=INTEGER},
+      </if>
+      <if test="porfessionalname != null" >
+        #{porfessionalname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Porfessional" >
+    update porfessional
+    <set >
+      <if test="porfessionalname != null" >
+        porfessionalName = #{porfessionalname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where porfessionalId = #{porfessionalid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Porfessional" >
+    update porfessional
+    set porfessionalName = #{porfessionalname,jdbcType=VARCHAR}
+    where porfessionalId = #{porfessionalid,jdbcType=INTEGER}
+  </update>
+</mapper>

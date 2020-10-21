@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.BlogMapper" >
+  <resultMap id="BlogMap" type="com.flh.model.entity.Blog" >
+    <id column="blogId" property="blogid" jdbcType="INTEGER" />
+    <result column="blogTopic" property="blogtopic" jdbcType="VARCHAR" />
+    <result column="blogpic" property="blogpic" jdbcType="VARCHAR" />
+    <result column="blogInfo" property="bloginfo" jdbcType="VARCHAR" />
+    <result column="blogTypeId" property="blogtypeid" jdbcType="INTEGER" />
+    <result column="blogTime" property="blogtime" jdbcType="TIMESTAMP" />
+    <association property="doctor" column="doctorId" javaType="Doctor"
+                 fetchType="eager" select="selectDoc"/>
+    <collection property="bloglabelList" select="selectAllLable" ofType="Bloglabel" fetchType="eager" column="blogId"/>
+    <collection property="blogcommentList" select="selectCom" ofType="Blogcomment" fetchType="eager" column="blogId"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    blogId, blogTopic, blogpic, blogInfo, doctorId, blogTypeId, blogTime
+  </sql>
+  <sql id="Base_Column_LabelList" >
+    labelId, labelName
+  </sql>
+  <sql id="Base_Column_DocList" >
+    doctorId, doctorName, doctorInfo, doctorEmail, doctorTel, hospitalId
+  </sql>
+
+  <select id="select" resultMap="BlogMap" parameterType="java.lang.Object">
+    select
+<include refid="Base_Column_List"/>
+    from blog
+    where 1=1
+    and blogTopic like concat('%',#{blogtopic1},'%')
+     or blog.doctorId=(select doctorId from doctor where doctorName like concat('%',#{doctorname1},'%'))
+    limit #{index},#{pageSizeS}
+  </select>
+
+  <select id="selectpage" resultType="int" parameterType="java.lang.String">
+    select count(*) from blog where 1=1
+    and blogTopic like concat('%',#{blogtopic},'%')
+     or blog.doctorId=(select doctorId from doctor where doctorName like concat('%',#{doctorname},'%'))
+  </select>
+
+  <select id="selectRelated" resultMap="BlogMap" parameterType="java.lang.Integer">
+    select <include refid="Base_Column_List"/>
+    from blog where blogTypeId=#{blogtypeid}
+  </select>
+  
+  <select id="selectCom" resultType="Blogcomment" parameterType="java.lang.Integer">
+      select * from blogcomment where blogId=#{blogid}
+  </select>
+
+  <select id="selectDoc" resultType="Doctor" parameterType="java.lang.Integer">
+select
+ <include refid="Base_Column_DocList"/>
+ from doctor
+    where doctorId=#{doctorid}
+  </select>
+
+  <select id="selectAllLable" resultType="Bloglabel" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_LabelList" />
+    from bloglabel
+    where labelId in (select labelId from b_l where blogId=#{blogid})
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BlogMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from blog
+    where blogId = #{blogid,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectBlogNum" resultType="int" >
+    select count(blogId)
+    from blog
+  </select>
+
+  <select id="selectBlogIndex" resultMap="BlogMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from blog
+    order by blogId desc
+    limit #{total},#{pageSize};
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blog
+    where blogId = #{blogid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Blog" >
+    insert into blog (blogId, blogTopic, blogpic, 
+      blogInfo, doctorId, blogTypeId, 
+      blogTime)
+    values (#{blogid,jdbcType=INTEGER}, #{blogtopic,jdbcType=VARCHAR}, #{blogpic,jdbcType=VARCHAR}, 
+      #{bloginfo,jdbcType=VARCHAR}, #{doctorid,jdbcType=INTEGER}, #{blogtypeid,jdbcType=INTEGER}, 
+      #{blogtime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Blog" >
+    insert into blog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="blogid != null" >
+        blogId,
+      </if>
+      <if test="blogtopic != null" >
+        blogTopic,
+      </if>
+      <if test="blogpic != null" >
+        blogpic,
+      </if>
+      <if test="bloginfo != null" >
+        blogInfo,
+      </if>
+      <if test="doctorid != null" >
+        doctorId,
+      </if>
+      <if test="blogtypeid != null" >
+        blogTypeId,
+      </if>
+      <if test="blogtime != null" >
+        blogTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="blogid != null" >
+        #{blogid,jdbcType=INTEGER},
+      </if>
+      <if test="blogtopic != null" >
+        #{blogtopic,jdbcType=VARCHAR},
+      </if>
+      <if test="blogpic != null" >
+        #{blogpic,jdbcType=VARCHAR},
+      </if>
+      <if test="bloginfo != null" >
+        #{bloginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorid != null" >
+        #{doctorid,jdbcType=INTEGER},
+      </if>
+      <if test="blogtypeid != null" >
+        #{blogtypeid,jdbcType=INTEGER},
+      </if>
+      <if test="blogtime != null" >
+        #{blogtime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Blog" >
+    update blog
+    <set >
+      <if test="blogtopic != null" >
+        blogTopic = #{blogtopic,jdbcType=VARCHAR},
+      </if>
+      <if test="blogpic != null" >
+        blogpic = #{blogpic,jdbcType=VARCHAR},
+      </if>
+      <if test="bloginfo != null" >
+        blogInfo = #{bloginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorid != null" >
+        doctorId = #{doctorid,jdbcType=INTEGER},
+      </if>
+      <if test="blogtypeid != null" >
+        blogTypeId = #{blogtypeid,jdbcType=INTEGER},
+      </if>
+      <if test="blogtime != null" >
+        blogTime = #{blogtime,jdbcType=DATE},
+      </if>
+    </set>
+    where blogId = #{blogid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Blog" >
+    update blog
+    set blogTopic = #{blogtopic,jdbcType=VARCHAR},
+      blogpic = #{blogpic,jdbcType=VARCHAR},
+      blogInfo = #{bloginfo,jdbcType=VARCHAR},
+      doctorId = #{doctorid,jdbcType=INTEGER},
+      blogTypeId = #{blogtypeid,jdbcType=INTEGER},
+      blogTime = #{blogtime,jdbcType=DATE}
+    where blogId = #{blogid,jdbcType=INTEGER}
+  </update>
+</mapper>

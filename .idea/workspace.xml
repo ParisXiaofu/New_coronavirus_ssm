@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="New_coronavirus_ssm:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4839b854-7996-481e-b182-988ff4ab5999" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
+        <option name="userSettingsFile" value="C:\MVN\apache-maven-3.5.0\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1j7k4LPJUL90rRl3zzADqSTuBCo" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1594310731608" />
+    <property name="last_opened_file_path" value="$APPLICATION_CONFIG_DIR$/jdbc-drivers/MySQL Connector" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.26666668" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\src\main\resources\xml" />
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\src\main\webapp\images" />
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\target\New_coronavirus_ssm\images" />
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\src\main\webapp" />
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\src\main\webapp\WEB-INF\view" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.flh.model.service.impl" />
+      <recent name="com.flh.model.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\src\main\webapp\images" />
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\src\main\webapp\images\blog" />
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\src\main\java\com\flh\model\entity" />
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\src\main\java\com\flh\model\dao" />
+      <recent name="C:\Users\25147\IdeaProjects\New_coronavirus_ssm\src\main\webapp\images\doctor" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat">
+    <configuration name="DoctorAction.doctorInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="New_coronavirus_ssm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flh.controller.action.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.flh.controller.action" />
+      <option name="MAIN_CLASS_NAME" value="com.flh.controller.action.DoctorAction" />
+      <option name="METHOD_NAME" value="doctorInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceImpl.updatePwdService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="New_coronavirus_ssm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flh.model.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.flh.model.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.flh.model.service.impl.UserServiceImpl" />
+      <option name="METHOD_NAME" value="updatePwdService" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.doctor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="New_coronavirus_ssm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flh.model.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.flh.model.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.flh.model.service.impl.test" />
+      <option name="METHOD_NAME" value="doctor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.updatePwd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="New_coronavirus_ssm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flh.model.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.flh.model.service" />
+      <option name="MAIN_CLASS_NAME" value="com.flh.model.service.test" />
+      <option name="METHOD_NAME" value="updatePwd" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.31" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="New_coronavirus_ssm:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_New_coronavirus_ssm_7" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55496" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="New_coronavirus_ssm:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_New_coronavirus_ssm" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55496" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.test.updatePwd" />
+      <item itemvalue="JUnit.UserServiceImpl.updatePwdService" />
+      <item itemvalue="JUnit.DoctorAction.doctorInfo" />
+      <item itemvalue="JUnit.test.doctor" />
+      <item itemvalue="Tomcat Server.Tomcat" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.test.doctor" />
+        <item itemvalue="JUnit.DoctorAction.doctorInfo" />
+        <item itemvalue="JUnit.UserServiceImpl.updatePwdService" />
+        <item itemvalue="JUnit.test.updatePwd" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\25147\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4839b854-7996-481e-b182-988ff4ab5999" name="Default Changelist" comment="" />
+      <created>1593743041670</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593743041670</updated>
+      <workItem from="1593743045609" duration="2758000" />
+      <workItem from="1593746188332" duration="1234000" />
+      <workItem from="1593780522792" duration="1487000" />
+      <workItem from="1593782050000" duration="572000" />
+      <workItem from="1593822542022" duration="29068000" />
+      <workItem from="1593866424376" duration="2000" />
+      <workItem from="1593866650957" duration="6477000" />
+      <workItem from="1593909899910" duration="18850000" />
+      <workItem from="1593945107283" duration="13250000" />
+      <workItem from="1593994791977" duration="6016000" />
+      <workItem from="1594001962297" duration="26178000" />
+      <workItem from="1594084006282" duration="46722000" />
+      <workItem from="1594168993818" duration="25041000" />
+      <workItem from="1594221012380" duration="500000" />
+      <workItem from="1594257560168" duration="32551000" />
+      <workItem from="1594297700227" duration="12109000" />
+      <workItem from="1594340950879" duration="16057000" />
+      <workItem from="1594605282340" duration="5193000" />
+      <workItem from="1597024747596" duration="1295000" />
+      <workItem from="1598499203658" duration="115000" />
+      <workItem from="1603162326096" duration="29000" />
+      <workItem from="1603162373483" duration="502000" />
+      <workItem from="1603248956283" duration="103000" />
+      <workItem from="1603249076887" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="DoctorAction_doctorInfo - 2020.07.07 at 15h 02m 35s.xml">
+      <configuration name="DoctorAction.doctorInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DoctorAction_doctorInfo - 2020.07.07 at 15h 02m 51s.xml">
+      <configuration name="DoctorAction.doctorInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_doctor - 2020.07.07 at 15h 11m 10s.xml">
+      <configuration name="test.doctor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_doctor - 2020.07.07 at 15h 13m 29s.xml">
+      <configuration name="test.doctor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_doctor - 2020.07.07 at 15h 16m 24s.xml">
+      <configuration name="test.doctor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_doctor - 2020.07.07 at 15h 16m 42s.xml">
+      <configuration name="test.doctor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_doctor - 2020.07.07 at 15h 17m 06s.xml">
+      <configuration name="test.doctor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_doctor - 2020.07.07 at 15h 18m 07s.xml">
+      <configuration name="test.doctor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_doctor - 2020.07.07 at 15h 20m 01s.xml">
+      <configuration name="test.doctor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_doctor - 2020.07.07 at 15h 21m 29s.xml">
+      <configuration name="test.doctor" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="608" y="208" key="#Plugins" timestamp="1603249085209">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="608" y="208" key="#Plugins/78.0.1842.1080@78.0.1842.1080" timestamp="1603249085209" />
+    <state x="561" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603162786840">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="561" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/78.0.1842.1080@78.0.1842.1080" timestamp="1603162786840" />
+    <state x="692" y="174" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable" timestamp="1603162475994">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="692" y="174" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/78.0.1842.1080@78.0.1842.1080" timestamp="1603162475994" />
+    <state x="749" y="265" key="FileChooserDialogImpl" timestamp="1603162741157">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="749" y="265" key="FileChooserDialogImpl/78.0.1842.1080@78.0.1842.1080" timestamp="1603162741157" />
+    <state width="1099" height="264" key="GridCell.Tab.0.bottom" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.0.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.0.center" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.0.center/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.0.left" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.0.left/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.0.right" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.0.right/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.1.bottom" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.1.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.1.center" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.1.center/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.1.left" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.1.left/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.1.right" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.1.right/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.2.bottom" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.2.bottom/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.2.center" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.2.center/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.2.left" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.2.left/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="1099" height="264" key="GridCell.Tab.2.right" timestamp="1603249058361">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="1099" height="264" key="GridCell.Tab.2.right/78.0.1842.1080@78.0.1842.1080" timestamp="1603249058361" />
+    <state width="152" height="477" key="HiddenNamespacesPopup" timestamp="1603162803571">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state width="152" height="477" key="HiddenNamespacesPopup/78.0.1842.1080@78.0.1842.1080" timestamp="1603162803571" />
+    <state x="449" y="99" key="SettingsEditor" timestamp="1603162461107">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="449" y="99" key="SettingsEditor/78.0.1842.1080@78.0.1842.1080" timestamp="1603162461107" />
+  </component>
+</project>

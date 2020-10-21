@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.AskhosquestionMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Askhosquestion" >
+    <id column="questionId" property="questionid" jdbcType="INTEGER" />
+    <result column="questionTopic" property="questiontopic" jdbcType="VARCHAR" />
+    <result column="questionReplyInfo" property="questionreplyinfo" jdbcType="VARCHAR" />
+    <result column="questionInfo" property="questioninfo" jdbcType="VARCHAR" />
+    <result column="hospitalId" property="hospitalid" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    questionId, questionTopic, questionReplyInfo, questionInfo, hospitalId, userId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from askhosquestion
+    where questionId = #{questionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from askhosquestion
+    where questionId = #{questionid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Askhosquestion" >
+    insert into askhosquestion (questionId, questionTopic, questionReplyInfo, 
+      questionInfo, hospitalId, userId
+      )
+    values (#{questionid,jdbcType=INTEGER}, #{questiontopic,jdbcType=VARCHAR}, #{questionreplyinfo,jdbcType=VARCHAR}, 
+      #{questioninfo,jdbcType=VARCHAR}, #{hospitalid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Askhosquestion" keyProperty="questionId" useGeneratedKeys="true">
+    insert into askhosquestion
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="questiontopic != null" >
+        questionTopic,
+      </if>
+      <if test="questionreplyinfo != null" >
+        questionReplyInfo,
+      </if>
+      <if test="questioninfo != null" >
+        questionInfo,
+      </if>
+      <if test="hospitalid != null" >
+        hospitalId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="questiontopic != null" >
+        #{questiontopic,jdbcType=VARCHAR},
+      </if>
+      <if test="questionreplyinfo != null" >
+        #{questionreplyinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="questioninfo != null" >
+        #{questioninfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        #{hospitalid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Askhosquestion" >
+    update askhosquestion
+    <set >
+      <if test="questiontopic != null" >
+        questionTopic = #{questiontopic,jdbcType=VARCHAR},
+      </if>
+      <if test="questionreplyinfo != null" >
+        questionReplyInfo = #{questionreplyinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="questioninfo != null" >
+        questionInfo = #{questioninfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalid != null" >
+        hospitalId = #{hospitalid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where questionId = #{questionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Askhosquestion" >
+    update askhosquestion
+    set questionTopic = #{questiontopic,jdbcType=VARCHAR},
+      questionReplyInfo = #{questionreplyinfo,jdbcType=VARCHAR},
+      questionInfo = #{questioninfo,jdbcType=VARCHAR},
+      hospitalId = #{hospitalid,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=INTEGER}
+    where questionId = #{questionid,jdbcType=INTEGER}
+  </update>
+</mapper>

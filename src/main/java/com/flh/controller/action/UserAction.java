@@ -55,7 +55,7 @@ public class UserAction {
     @RequestMapping("updatePwd")
     @ResponseBody
     public String  updatePwd(User user, HttpSession session){
-        if (session.getAttribute("email")==null){
+        if (session.getAttribute("email") == null){
             return "error";
         }else {
         user.setUseremail((String) session.getAttribute("email"));

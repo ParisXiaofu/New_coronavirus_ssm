@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>     
+    	<!-- 允许JDBC支持生成的键 -->
+        <setting name="useGeneratedKeys" value="true"/>
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+	<typeAliases>
+		<!-- 配置数据类型的别名 -->
+		<typeAlias type="com.flh.model.entity.Askdocquestion"  alias="Askdocquestion"/>
+		<typeAlias type="com.flh.model.entity.Askhelp"  alias="Askhelp"/>
+		<typeAlias type="com.flh.model.entity.Askhosquestion"  alias="Askhosquestion"/>
+		<typeAlias type="com.flh.model.entity.Blog"  alias="Blog"/>
+		<typeAlias type="com.flh.model.entity.Blogcomment"  alias="Blogcomment"/>
+		<typeAlias type="com.flh.model.entity.Bloglabel"  alias="Bloglabel"/>
+		<typeAlias type="com.flh.model.entity.Blogtype"  alias="Blogtype"/>
+		<typeAlias type="com.flh.model.entity.Doctor"  alias="Doctor"/>
+		<typeAlias type="com.flh.model.entity.Education"  alias="Education"/>
+		<typeAlias type="com.flh.model.entity.Hospital"  alias="Hospital"/>
+		<typeAlias type="com.flh.model.entity.Porfessional"  alias="Porfessional"/>
+		<typeAlias type="com.flh.model.entity.Sarsnuminfo"  alias="Sarsnuminfo"/>
+		<typeAlias type="com.flh.model.entity.Sarssympt"  alias="Sarssympt"/>
+		<typeAlias type="com.flh.model.entity.Sarstips"  alias="Sarstips"/>
+		<typeAlias type="com.flh.model.entity.Sarsways"  alias="Sarsways"/>
+		<typeAlias type="com.flh.model.entity.User"  alias="User"/>
+		<typeAlias type="com.flh.model.entity.Wash"  alias="Wash"/>
+	</typeAliases>
+	<mappers>
+		<!-- 配置映射文件 -->
+		<mapper resource="xml/AskdocquestionMapper.xml"/>
+		<mapper resource="xml/AskhelpMapper.xml"/>
+		<mapper resource="xml/AskhosquestionMapper.xml"/>
+		<mapper resource="xml/BlogcommentMapper.xml"/>
+		<mapper resource="xml/BloglabelMapper.xml"/>
+		<mapper resource="xml/BlogMapper.xml"/>
+		<mapper resource="xml/BlogtypeMapper.xml"/>
+		<mapper resource="xml/DoctorMapper.xml"/>
+		<mapper resource="xml/EducationMapper.xml"/>
+		<mapper resource="xml/HospitalMapper.xml"/>
+		<mapper resource="xml/PorfessionalMapper.xml"/>
+		<mapper resource="xml/SarsnuminfoMapper.xml"/>
+		<mapper resource="xml/SarssymptMapper.xml"/>
+		<mapper resource="xml/SarstipsMapper.xml"/>
+		<mapper resource="xml/SarswaysMapper.xml"/>
+		<mapper resource="xml/UserMapper.xml"/>
+		<mapper resource="xml/WashMapper.xml"/>
+	</mappers>
+</configuration>

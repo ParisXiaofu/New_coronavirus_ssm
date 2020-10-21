@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.BlogcommentMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Blogcomment" >
+    <id column="commentId" property="commentid" jdbcType="INTEGER" />
+    <result column="commentInfo" property="commentinfo" jdbcType="VARCHAR" />
+    <result column="commentTime" property="commenttime" jdbcType="TIMESTAMP" />
+    <result column="blogId" property="blogid" jdbcType="INTEGER" />
+      <result column="userId" property="userid" javaType="INTEGER"/>
+   <association property="user" javaType="User" column="userId" fetchType="eager" select="selectU"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    commentId, commentInfo, commentTime, blogId, userId
+  </sql>
+  <sql id="Base_Column_UserList" >
+    userId, userEmail, userName, userPwd
+  </sql>
+<select id="selectU" resultType="User" parameterType="int">
+    select * from user where userId=#{userid};
+</select>
+
+  <select id="selectByPrimaryKey" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    select 
+    count(commentId)
+    from blogcomment
+    where blogId = #{blogid}
+  </select>
+  <select id="allCommentIndex" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+select
+<include refid="Base_Column_List"/>
+    from blogcomment
+    where blogId = #{blogids}
+    order by  commentId desc
+    limit #{intal},#{pageSizeCom};
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blogcomment
+    where commentId = #{commentid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Blogcomment" >
+    insert into blogcomment (commentId, commentInfo, commentTime, 
+      blogId, userId)
+    values (#{commentid,jdbcType=INTEGER}, #{commentinfo,jdbcType=VARCHAR}, #{commenttime,jdbcType=TIMESTAMP}, 
+      #{blogid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Blogcomment" keyProperty="commentId" useGeneratedKeys="true">
+    insert into blogcomment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentinfo != null" >
+        commentInfo,
+      </if>
+      <if test="commenttime != null" >
+        commentTime,
+      </if>
+      <if test="blogid != null" >
+        blogId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentinfo != null" >
+        #{commentinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="commenttime != null" >
+        #{commenttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogid != null" >
+        #{blogid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Blogcomment" >
+    update blogcomment
+    <set >
+      <if test="commentinfo != null" >
+        commentInfo = #{commentinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="commenttime != null" >
+        commentTime = #{commenttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogid != null" >
+        blogId = #{blogid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where commentId = #{commentid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Blogcomment" >
+    update blogcomment
+    set commentInfo = #{commentinfo,jdbcType=VARCHAR},
+      commentTime = #{commenttime,jdbcType=TIMESTAMP},
+      blogId = #{blogid,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=INTEGER}
+    where commentId = #{commentid,jdbcType=INTEGER}
+  </update>
+</mapper>

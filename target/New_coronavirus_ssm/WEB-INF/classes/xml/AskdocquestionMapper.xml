@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.AskdocquestionMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Askdocquestion" >
+    <id column="docQuestionId" property="docquestionid" jdbcType="INTEGER" />
+    <result column="docQuestionInfo" property="docquestioninfo" jdbcType="VARCHAR" />
+    <result column="docQuesstionTopic" property="docquesstiontopic" jdbcType="VARCHAR" />
+    <result column="doctorId" property="doctorid" jdbcType="INTEGER" />
+    <result column="docQuestionReplyInfo" property="docquestionreplyinfo" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    docQuestionId, docQuestionInfo, docQuesstionTopic, doctorId, docQuestionReplyInfo, 
+    userId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from askdocquestion
+    where docQuestionId = #{docquestionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from askdocquestion
+    where docQuestionId = #{docquestionid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Askdocquestion" >
+    insert into askdocquestion (docQuestionId, docQuestionInfo, docQuesstionTopic, 
+      doctorId, docQuestionReplyInfo, userId
+      )
+    values (#{docquestionid,jdbcType=INTEGER}, #{docquestioninfo,jdbcType=VARCHAR}, #{docquesstiontopic,jdbcType=VARCHAR}, 
+      #{doctorid,jdbcType=INTEGER}, #{docquestionreplyinfo,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Askdocquestion" keyProperty="docquestionid" useGeneratedKeys="true" >
+    insert into askdocquestion
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="docquestioninfo != null" >
+        docQuestionInfo,
+      </if>
+      <if test="doctorid != null" >
+        doctorId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="docquestioninfo != null" >
+        #{docquestioninfo,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorid != null" >
+        #{doctorid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Askdocquestion" >
+    update askdocquestion
+    <set >
+      <if test="docquestioninfo != null" >
+        docQuestionInfo = #{docquestioninfo,jdbcType=VARCHAR},
+      </if>
+      <if test="docquesstiontopic != null" >
+        docQuesstionTopic = #{docquesstiontopic,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorid != null" >
+        doctorId = #{doctorid,jdbcType=INTEGER},
+      </if>
+      <if test="docquestionreplyinfo != null" >
+        docQuestionReplyInfo = #{docquestionreplyinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where docQuestionId = #{docquestionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Askdocquestion" >
+    update askdocquestion
+    set docQuestionInfo = #{docquestioninfo,jdbcType=VARCHAR},
+      docQuesstionTopic = #{docquesstiontopic,jdbcType=VARCHAR},
+      doctorId = #{doctorid,jdbcType=INTEGER},
+      docQuestionReplyInfo = #{docquestionreplyinfo,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=INTEGER}
+    where docQuestionId = #{docquestionid,jdbcType=INTEGER}
+  </update>
+</mapper>

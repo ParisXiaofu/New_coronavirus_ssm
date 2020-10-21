@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.BloglabelMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Bloglabel" >
+    <id column="labelId" property="labelid" jdbcType="INTEGER" />
+    <result column="labelName" property="labelname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    labelId, labelName
+  </sql>
+
+  <select id="alllabel" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>  FROM bloglabel;
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from bloglabel
+    where labelId = #{labelid,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from bloglabel
+    where labelId = #{labelid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Bloglabel" >
+    insert into bloglabel (labelId, labelName)
+    values (#{labelid,jdbcType=INTEGER}, #{labelname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Bloglabel" >
+    insert into bloglabel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="labelid != null" >
+        labelId,
+      </if>
+      <if test="labelname != null" >
+        labelName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="labelid != null" >
+        #{labelid,jdbcType=INTEGER},
+      </if>
+      <if test="labelname != null" >
+        #{labelname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Bloglabel" >
+    update bloglabel
+    <set >
+      <if test="labelname != null" >
+        labelName = #{labelname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where labelId = #{labelid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Bloglabel" >
+    update bloglabel
+    set labelName = #{labelname,jdbcType=VARCHAR}
+    where labelId = #{labelid,jdbcType=INTEGER}
+  </update>
+</mapper>

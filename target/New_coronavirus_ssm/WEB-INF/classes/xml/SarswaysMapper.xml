@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.SarswaysMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Sarsways" >
+    <id column="sarsWaysId" property="sarswaysid" jdbcType="INTEGER" />
+    <result column="sarsWaysName" property="sarswaysname" jdbcType="VARCHAR" />
+    <result column="sarsWaysInfo" property="sarswaysinfo" jdbcType="VARCHAR" />
+    <result column="sarsWaysPic" property="sarswayspic" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sarsWaysId, sarsWaysName, sarsWaysInfo, sarsWaysPic
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from sarsways
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sarsways
+    where sarsWaysId = #{sarswaysid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Sarsways" >
+    insert into sarsways (sarsWaysId, sarsWaysName, sarsWaysInfo, 
+      sarsWaysPic)
+    values (#{sarswaysid,jdbcType=INTEGER}, #{sarswaysname,jdbcType=VARCHAR}, #{sarswaysinfo,jdbcType=VARCHAR}, 
+      #{sarswayspic,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Sarsways" >
+    insert into sarsways
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sarswaysid != null" >
+        sarsWaysId,
+      </if>
+      <if test="sarswaysname != null" >
+        sarsWaysName,
+      </if>
+      <if test="sarswaysinfo != null" >
+        sarsWaysInfo,
+      </if>
+      <if test="sarswayspic != null" >
+        sarsWaysPic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sarswaysid != null" >
+        #{sarswaysid,jdbcType=INTEGER},
+      </if>
+      <if test="sarswaysname != null" >
+        #{sarswaysname,jdbcType=VARCHAR},
+      </if>
+      <if test="sarswaysinfo != null" >
+        #{sarswaysinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sarswayspic != null" >
+        #{sarswayspic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Sarsways" >
+    update sarsways
+    <set >
+      <if test="sarswaysname != null" >
+        sarsWaysName = #{sarswaysname,jdbcType=VARCHAR},
+      </if>
+      <if test="sarswaysinfo != null" >
+        sarsWaysInfo = #{sarswaysinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="sarswayspic != null" >
+        sarsWaysPic = #{sarswayspic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sarsWaysId = #{sarswaysid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Sarsways" >
+    update sarsways
+    set sarsWaysName = #{sarswaysname,jdbcType=VARCHAR},
+      sarsWaysInfo = #{sarswaysinfo,jdbcType=VARCHAR},
+      sarsWaysPic = #{sarswayspic,jdbcType=VARCHAR}
+    where sarsWaysId = #{sarswaysid,jdbcType=INTEGER}
+  </update>
+</mapper>

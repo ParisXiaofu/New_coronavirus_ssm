@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.SarsnuminfoMapper" >
+  <resultMap id="BaseResultMap" type="com.flh.model.entity.Sarsnuminfo" >
+    <id column="sarsNumInfoId" property="sarsnuminfoid" jdbcType="INTEGER" />
+    <result column="sarsConfirmedCasesNum" property="sarsconfirmedcasesnum" jdbcType="INTEGER" />
+    <result column="sarsDathsNum" property="sarsdathsnum" jdbcType="INTEGER" />
+    <result column="sarsRecoverNum" property="sarsrecovernum" jdbcType="INTEGER" />
+    <result column="sarsActiveNum" property="sarsactivenum" jdbcType="INTEGER" />
+    <result column="newDate" property="newdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sarsNumInfoId, sarsConfirmedCasesNum, sarsDathsNum, sarsRecoverNum, sarsActiveNum, 
+    newDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sarsnuminfo
+    where newDate = #{newdate}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sarsnuminfo
+    where sarsNumInfoId = #{sarsnuminfoid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Sarsnuminfo" >
+    insert into sarsnuminfo (sarsNumInfoId, sarsConfirmedCasesNum, 
+      sarsDathsNum, sarsRecoverNum, sarsActiveNum, 
+      newDate)
+    values (#{sarsnuminfoid,jdbcType=INTEGER}, #{sarsconfirmedcasesnum,jdbcType=INTEGER}, 
+      #{sarsdathsnum,jdbcType=INTEGER}, #{sarsrecovernum,jdbcType=INTEGER}, #{sarsactivenum,jdbcType=INTEGER}, 
+      #{newdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Sarsnuminfo" >
+    insert into sarsnuminfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sarsnuminfoid != null" >
+        sarsNumInfoId,
+      </if>
+      <if test="sarsconfirmedcasesnum != null" >
+        sarsConfirmedCasesNum,
+      </if>
+      <if test="sarsdathsnum != null" >
+        sarsDathsNum,
+      </if>
+      <if test="sarsrecovernum != null" >
+        sarsRecoverNum,
+      </if>
+      <if test="sarsactivenum != null" >
+        sarsActiveNum,
+      </if>
+      <if test="newdate != null" >
+        newDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sarsnuminfoid != null" >
+        #{sarsnuminfoid,jdbcType=INTEGER},
+      </if>
+      <if test="sarsconfirmedcasesnum != null" >
+        #{sarsconfirmedcasesnum,jdbcType=INTEGER},
+      </if>
+      <if test="sarsdathsnum != null" >
+        #{sarsdathsnum,jdbcType=INTEGER},
+      </if>
+      <if test="sarsrecovernum != null" >
+        #{sarsrecovernum,jdbcType=INTEGER},
+      </if>
+      <if test="sarsactivenum != null" >
+        #{sarsactivenum,jdbcType=INTEGER},
+      </if>
+      <if test="newdate != null" >
+        #{newdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Sarsnuminfo" >
+    update sarsnuminfo
+    <set >
+      <if test="sarsconfirmedcasesnum != null" >
+        sarsConfirmedCasesNum = #{sarsconfirmedcasesnum,jdbcType=INTEGER},
+      </if>
+      <if test="sarsdathsnum != null" >
+        sarsDathsNum = #{sarsdathsnum,jdbcType=INTEGER},
+      </if>
+      <if test="sarsrecovernum != null" >
+        sarsRecoverNum = #{sarsrecovernum,jdbcType=INTEGER},
+      </if>
+      <if test="sarsactivenum != null" >
+        sarsActiveNum = #{sarsactivenum,jdbcType=INTEGER},
+      </if>
+      <if test="newdate != null" >
+        newDate = #{newdate,jdbcType=DATE},
+      </if>
+    </set>
+    where sarsNumInfoId = #{sarsnuminfoid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Sarsnuminfo" >
+    update sarsnuminfo
+    set sarsConfirmedCasesNum = #{sarsconfirmedcasesnum,jdbcType=INTEGER},
+      sarsDathsNum = #{sarsdathsnum,jdbcType=INTEGER},
+      sarsRecoverNum = #{sarsrecovernum,jdbcType=INTEGER},
+      sarsActiveNum = #{sarsactivenum,jdbcType=INTEGER},
+      newDate = #{newdate,jdbcType=DATE}
+    where sarsNumInfoId = #{sarsnuminfoid,jdbcType=INTEGER}
+  </update>
+</mapper>

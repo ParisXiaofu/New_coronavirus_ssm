@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flh.model.dao.BlogtypeMapper" >
+  <resultMap id="BlogTypeMap" type="com.flh.model.entity.Blogtype" >
+    <id column="blogTypeId" property="blogtypeid" jdbcType="INTEGER" />
+    <result column="blogTypeName" property="blogtypename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    blogTypeId, blogTypeName
+  </sql>
+
+  <select id="alltype" resultMap="BlogTypeMap">
+    select
+    <include refid="Base_Column_List"/>
+    from
+    blogtype
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BlogTypeMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from blogtype
+    where blogTypeId = #{blogtypeid,jdbcType=INTEGER}
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blogtype
+    where blogTypeId = #{blogtypeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flh.model.entity.Blogtype" >
+    insert into blogtype (blogTypeId, blogTypeName)
+    values (#{blogtypeid,jdbcType=INTEGER}, #{blogtypename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flh.model.entity.Blogtype" >
+    insert into blogtype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="blogtypeid != null" >
+        blogTypeId,
+      </if>
+      <if test="blogtypename != null" >
+        blogTypeName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="blogtypeid != null" >
+        #{blogtypeid,jdbcType=INTEGER},
+      </if>
+      <if test="blogtypename != null" >
+        #{blogtypename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flh.model.entity.Blogtype" >
+    update blogtype
+    <set >
+      <if test="blogtypename != null" >
+        blogTypeName = #{blogtypename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where blogTypeId = #{blogtypeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flh.model.entity.Blogtype" >
+    update blogtype
+    set blogTypeName = #{blogtypename,jdbcType=VARCHAR}
+    where blogTypeId = #{blogtypeid,jdbcType=INTEGER}
+  </update>
+</mapper>
