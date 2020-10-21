@@ -28,8 +28,8 @@ public class UserAction {
     @RequestMapping("login")
     @ResponseBody
     public Object loginUser(User user, HttpSession session){
-        if (userService.loginService(user)!=null){
-            User user1=userService.loginService(user);
+        if (userService.loginService(user) != null){
+            User user1 = userService.loginService(user);
             session.setAttribute("user1",user1);
             return user1;
         }

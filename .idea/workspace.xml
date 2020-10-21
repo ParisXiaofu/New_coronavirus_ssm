@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4839b854-7996-481e-b182-988ff4ab5999" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4839b854-7996-481e-b182-988ff4ab5999" name="Default Changelist" comment="整理代码" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,6 +79,7 @@
     <property name="last_opened_file_path" value="$APPLICATION_CONFIG_DIR$/jdbc-drivers/MySQL Connector" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="模块" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.26666668" />
@@ -358,8 +354,16 @@
       <workItem from="1603162326096" duration="29000" />
       <workItem from="1603162373483" duration="502000" />
       <workItem from="1603248956283" duration="103000" />
-      <workItem from="1603249076887" duration="11000" />
+      <workItem from="1603249076887" duration="399000" />
     </task>
+    <task id="LOCAL-00001" summary="整理代码">
+      <created>1603249336813</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603249336813</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -397,6 +401,12 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="整理代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理代码" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="608" y="208" key="#Plugins" timestamp="1603249085209">
       <screen x="78" y="0" width="1842" height="1080" />
@@ -410,6 +420,10 @@
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state x="692" y="174" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/78.0.1842.1080@78.0.1842.1080" timestamp="1603162475994" />
+    <state x="559" y="113" key="CommitChangelistDialog2" timestamp="1603249334410">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="559" y="113" key="CommitChangelistDialog2/78.0.1842.1080@78.0.1842.1080" timestamp="1603249334410" />
     <state x="749" y="265" key="FileChooserDialogImpl" timestamp="1603162741157">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
